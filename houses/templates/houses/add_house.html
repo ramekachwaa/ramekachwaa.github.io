@@ -1,0 +1,18 @@
+{% extends 'houses/base.html' %}
+{% load static %}
+
+{% block title %}Add a new Property{% endblock %}
+
+{% block content %}
+<section class="intro-single">
+</section><!-- End Intro Single-->
+
+<form method="POST" enctype="multipart/form-data" style="margin:0 30px;">
+    {% csrf_token %}
+    {{form.as_p}}
+    <label>other images</label>
+    <input type="file" id="files" name="files" multiple><br>
+    <input type="submit">
+</form>
+
+{% endblock %}

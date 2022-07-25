@@ -1,0 +1,32 @@
+{% extends 'houses/base.html' %}
+{% load static %}
+
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+  <main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+    </section><!-- End Intro Single -->
+<h1>Number of messages : {{agent.message_set.count}}</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for msg in agent.message_set.all %}
+    <tr>
+      <td>{{msg.user_name}}</td>
+      <td>{{msg.email}}</td>
+      <td style="font-weight:bold;">{{msg.content}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  </main><!-- End #main -->
+{% endblock %}
